@@ -1,0 +1,52 @@
+/* pushes the page to the full capacity of the viewing area */
+html {height:100%;}
+body {
+	height:100%; 
+	margin:0 auto; 
+	padding:0; 
+	background:#c8c8c8; 
+	width:100%
+}
+/* prepares the background image to full capacity of the viewing area */
+#introbg {
+	position:fixed; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%;
+	background: url(../images/bg2024.jpg) no-repeat center center transparent;
+	background-size: cover;
+}
+/* places the content ontop of the background image */
+#content {
+	position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title {
+	text-align: center;
+	width: 100%;
+	opacity:0.75;
+}
+.title:after {
+	content: "SITO IN ALLESTIMENTO";
+	padding: 0;
+	display: block;
+	font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 2px;
+	color: #8c8c8c;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+}

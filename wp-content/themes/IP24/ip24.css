@@ -1,0 +1,365 @@
+ body {
+	--bg-color: #E7E7E7;
+	--text-color: #1E1E1E;
+}
+
+html {height:100%;}
+body {
+	height:100%; 
+	margin:0 auto; 
+	padding:0; 
+	width:100%;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	
+	/*	font-family: 'Open Sans', sans-serif;  */
+	font-family: 'Source Serif 4', TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;
+	font-weight: 400;
+}
+
+strong, b { font-weight: 600; }
+.wp-block-table td, .wp-block-table th { border: none; }
+
+
+#introbg {
+	position:fixed; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%;
+	background: url(./images/bg2024.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: transparent;
+	background-size: cover;
+}
+#introbg > img { height: 100%; }
+#page {
+	position: relative;
+	z-index: 1;
+	height: auto;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/* HEADER */
+
+.site-header.site-header-big {
+	height: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#site-navigation {
+	position: fixed;
+	z-index: 10;
+	top: 3lvh;
+	left: 5lvw;
+	width: 90lvw;
+
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+	justify-content: space-between;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 400;
+}
+
+#site-navigation .menu-imperatoriepartners-container {
+	opacity: 0;
+	width: 100%;
+	margin-top: 15px;
+	overflow: hidden;
+	transition: opacity 350ms ease-in-out;
+}
+#site-navigation.toggled .menu-imperatoriepartners-container {
+	opacity: 1;
+}
+
+#site-navigation.toggled #primary-menu {
+	background-color: var(--text-color);
+	border-radius: 3px;
+	padding: 10px 30px;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+#site-navigation.toggled #primary-menu ul {
+	font-size: 14px;
+	line-height: 24px;
+	position: initial;
+	width: 100%;
+	margin-bottom: 5px;
+}
+#site-navigation #primary-menu a {
+	color: var(--bg-color);
+	text-transform: uppercase;
+	padding: 5px 0;
+	text-align: right;
+	width: 100%;
+}
+
+
+
+#site-navigation .menu-toggle {
+	background-color: transparent;
+	border: none;
+	position: relative;
+	text-indent: -9999px;
+	border-top: 2px solid var(--text-color);
+	border-bottom: 2px solid var(--text-color);
+	border-radius: 0;
+	padding: 0;
+	width: 30px;
+	height: 20px;
+}
+#site-navigation .menu-toggle:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 7px;
+	width: 30px;
+	height: 2px;
+	background-color: var(--text-color);
+}
+
+
+
+
+
+.site-header.site-header-big .site-branding {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 70vw;
+	margin-top: 15lvh;
+	text-align: center;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+
+@media only screen and (min-width: 768px) {
+	.site-header.site-header-big #site-navigation {
+		position: fixed;
+		z-index: 1;
+		top: initial;
+		bottom: 5lvh;
+		width: 90lvw;
+		background-color: var(--text-color);
+		border-radius: 3px;
+	}
+	#site-navigation .menu-imperatoriepartners-container {
+		margin-top: 0;
+		opacity: 1;
+	}
+	#site-navigation #primary-menu {
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.site-header.site-header-big .site-branding {
+		width: 330px;
+		margin-left: 50vw;
+		padding-bottom: 10lvh;
+		font-size: 20px;
+		line-height: 26px;
+	}
+}
+
+/* HP IN EVIDENZA */
+section.container-offers {
+	position: relative;
+	z-index: 2;
+	background: var(--text-color);
+	color: var(--bg-color);
+	display: flex;
+	flex-flow: column wrap;
+	align-items: flex-start;
+	justify-content: space-around;
+	width: 100lvw;
+	padding-bottom: 20px;
+}
+section.container-offers .wp-block-heading {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 60px;
+	text-transform: uppercase;
+	margin-bottom: 60px;
+}
+
+section.container-offers .offer-card {
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	text-decoration: none;
+	margin-bottom: 60px;
+}
+
+figure.offer-card-pic {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+figure.offer-card-pic img {
+	max-height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: 3px;
+}
+.offer-card-text {
+	width: 90vw;
+	margin: 0 5vw;
+	background-color: #E7E7E7dd;
+	padding: 0px 5vw;
+	border-radius: 3px;
+	color: var(--text-color);
+	line-height: 20px;
+	margin-top: -75px;
+	z-index: 1;
+}
+
+.offer-card-tit {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	margin: 20px 0 -10px 0;
+}
+
+@media only screen and (min-width: 768px) {
+	section.container-offers .wp-block-heading { font-size: 72px; }
+	section.container-offers .offer-card { 
+		flex-flow: row;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	section.container-offers .offer-card:nth-child(odd) { flex-flow: row-reverse; }
+
+	figure.offer-card-pic img {
+		max-height: 50lvh;
+		max-width: 50lvw;
+	}
+	.offer-card-text {
+	position: absolute;
+	width: 50lvw;
+	max-width: 600px;
+	right: 5lvw;
+	margin-top: 0;
+	}
+	.offer-card:nth-child(odd) .offer-card-text {
+		left: 5lvw;
+	}
+}
+
+
+/* CHI SIAMO - CONTATTI */
+.chi-siamo-block .wp-block-cover,
+.contatti-block .wp-block-cover { 
+	padding:0;
+	z-index: 2;
+}
+.chi-siamo-block .wp-block-cover .wp-block-cover__inner-container p,
+.contatti-block .wp-block-cover .wp-block-cover__inner-container p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 60px;
+	color: var(--bg-color);
+	text-transform: uppercase;
+	margin-bottom: 0;
+	text-align: left;
+	position: absolute;
+	bottom: 0;
+}
+.chi-siamo-block p,
+.contatti-block p,
+.chi-siamo-block .wp-block-table {
+	width: 80vw;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+.chi-siamo-block p,
+.contatti-block p {
+    margin: 60px auto;
+    font-size: 18px;
+}
+
+.contatti-block form p {
+	margin: 20px auto;
+}
+.contatti-block p span.msglabel {
+	display: block;
+	font-weight: 600;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-family: 'Open Sans';
+}
+.contatti-block input,
+.contatti-block textarea {
+	max-width: 80vw;
+	margin: 0;
+	padding: 3px 5px;
+	background: transparent;
+	border: none;
+	background-color: var(--bg-color);
+	font-size: 26px;
+	color: var(--text-color);
+}
+.contatti-block input[type="submit"] {
+	padding: 10px 50px;
+	float: right;
+	background-color: var(--text-color);
+	color: var(--bg-color);
+	text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+	.chi-siamo-block .wp-block-cover .wp-block-cover__inner-container, 
+	.contatti-block .wp-block-cover .wp-block-cover__inner-container { 
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.chi-siamo-block .wp-block-cover .wp-block-cover__inner-container p, 
+	.contatti-block .wp-block-cover .wp-block-cover__inner-container p { 
+		font-size: 72px;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0;
+	}
+}
+
+
+/* FOOTER */
+.site-footer {
+	z-index: 2;
+	background-color: var(--text-color);
+	color: var(--bg-color);
+	padding: 10vh 5vw;
+	width: 100%;
+	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+
