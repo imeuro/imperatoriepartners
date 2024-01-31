@@ -17,10 +17,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
-
+ -->
 	<?php wp_head(); ?>
 </head>
 
@@ -40,7 +40,7 @@
 	<header id="masthead" class="site-header site-header-big">
 		<div class="site-branding">
 
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/images/IMPERATORI&PARTNERS.svg' ?>" alt="logo" /></a></h1>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/images/IMPERATORI&PARTNERS.svg' ?>" alt="logo" width="330" height="86" /></a></h1>
 
 			<?php 
 			$ip24_description = get_bloginfo( 'description', 'display' );
@@ -69,7 +69,7 @@
 <?php else : ?>
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/images/IMPERATORI&PARTNERS.svg' ?>" alt="logo" /></a></p>
+			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/images/IMPERATORI&PARTNERS.svg' ?>" alt="logo" width="330" height="86" /></a></p>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
