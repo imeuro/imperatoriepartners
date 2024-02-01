@@ -1,5 +1,6 @@
  body {
 	--bg-color: #E7E7E7;
+	--bg-color-trasp: #E7E7E7dd;
 	--text-color: #1E1E1E;
 }
 
@@ -166,7 +167,7 @@ strong, b { font-weight: 600; }
 @media only screen and (min-width: 768px) {
 	.site-header.site-header-big #site-navigation {
 		position: fixed;
-		z-index: 1;
+		z-index: 3;
 		top: initial;
 		bottom: 5lvh;
 		width: 90lvw;
@@ -195,8 +196,8 @@ strong, b { font-weight: 600; }
 section.container-offers {
 	position: relative;
 	z-index: 2;
-	background: var(--text-color);
-	color: var(--bg-color);
+	/*background: var(--text-color);
+	color: var(--bg-color);*/
 	display: flex;
 	flex-flow: column wrap;
 	align-items: flex-start;
@@ -204,16 +205,24 @@ section.container-offers {
 	width: 100lvw;
 	padding-bottom: 20px;
 }
-section.container-offers .wp-block-heading {
+section.container-offers .wp-block-heading,
+section#chi-siamo .wp-block-heading,
+section#contatti .wp-block-heading {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
+	padding: 0 5vw 20px 5vw;
+	color: var(--text-color);
+	/*font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
-	font-size: 48px;
-	line-height: 60px;
+	font-size: 48px;*/
+	font-family: 'Source Serif 4', TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;
+	font-size: 36px;
+	letter-spacing: .5px;
+	font-weight: 500;
+	line-height: 42px;
 	text-transform: uppercase;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 section.container-offers .offer-card {
@@ -240,7 +249,7 @@ figure.offer-card-pic img {
 .offer-card-text {
 	width: 90vw;
 	margin: 0 5vw;
-	background-color: #E7E7E7dd;
+	background-color: var(--bg-color-trasp);
 	padding: 0px 5vw;
 	border-radius: 3px;
 	color: var(--text-color);
@@ -256,7 +265,14 @@ figure.offer-card-pic img {
 }
 
 @media only screen and (min-width: 768px) {
-	section.container-offers .wp-block-heading { font-size: 72px; }
+	section.container-offers .wp-block-heading,
+	section#chi-siamo .wp-block-heading,
+	section#contatti .wp-block-heading { 
+		font-size: 48px;
+		letter-spacing: 2px;
+		font-weight: 500;
+		margin: 60px auto;
+	}
 	section.container-offers .offer-card { 
 		flex-flow: row;
 		max-width: 1200px;
@@ -330,7 +346,7 @@ figure.offer-card-pic img {
 	padding: 3px 5px;
 	background: transparent;
 	border: none;
-	background-color: var(--bg-color);
+	background-color: var(--bg-color-trasp);
 	font-size: 26px;
 	color: var(--text-color);
 }
@@ -361,7 +377,7 @@ figure.offer-card-pic img {
 
 /* FOOTER */
 .site-footer {
-	z-index: 2;
+	z-index: 5;
 	background-color: var(--text-color);
 	color: var(--bg-color);
 	padding: 10vh 5vw;
