@@ -1,4 +1,4 @@
- body {
+:root {
 	--bg-color: #E7E7E7;
 	--bg-color-trasp: #E7E7E7dd;
 	--text-color: #1E1E1E;
@@ -59,6 +59,16 @@ strong, b { font-weight: 600; }
 
 
 /* HEADER */
+.site-header.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100lvw;
+	height: 70px;
+	z-index: 10;
+	padding: 0 5lvw;
+	background: #fffd;
+}
 
 .site-header.site-header-big {
 	height: 100%;
@@ -67,6 +77,8 @@ strong, b { font-weight: 600; }
 	flex-flow: column nowrap;
 	align-items: center;
 	justify-content: space-around;
+	position: initial;
+	background: transparent;
 }
 
 #site-navigation {
@@ -151,6 +163,14 @@ strong, b { font-weight: 600; }
 
 
 
+.site-header.site-header .site-branding {
+	width: 50vw;
+	max-width: 200px;
+}
+.site-header.site-header .site-branding .site-title {
+	padding: 10px 0;
+   margin: 0;
+ }
 .site-header.site-header-big .site-branding {
 	display: flex;
 	flex-flow: column;
@@ -161,6 +181,13 @@ strong, b { font-weight: 600; }
 	text-align: center;
 	font-size: 16px;
 	line-height: 24px;
+}
+
+.site-header:not(.site-header-big) + #primary {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 70px;
 }
 
 
@@ -207,15 +234,13 @@ section.container-offers {
 }
 section.container-offers .wp-block-heading,
 section#chi-siamo .wp-block-heading,
-section#contatti .wp-block-heading {
+section#contatti .wp-block-heading,
+.page-title {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 5vw 20px 5vw;
 	color: var(--text-color);
-	/*font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	font-size: 48px;*/
 	font-family: 'Source Serif 4', TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;
 	font-size: 36px;
 	letter-spacing: .5px;
@@ -260,14 +285,16 @@ figure.offer-card-pic img {
 
 .offer-card-tit {
 	font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
 	font-weight: 600;
-	margin: 20px 0 -10px 0;
+	margin: 20px 0 0 0;
 }
 
 @media only screen and (min-width: 768px) {
 	section.container-offers .wp-block-heading,
 	section#chi-siamo .wp-block-heading,
-	section#contatti .wp-block-heading { 
+	section#contatti .wp-block-heading,
+	.page-title { 
 		font-size: 48px;
 		letter-spacing: 2px;
 		font-weight: 500;
@@ -371,6 +398,75 @@ figure.offer-card-pic img {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0;
+	}
+}
+
+
+
+
+/* ELEMENTI IN PAGINE/ARCHIVI */
+
+.archive .page-header {
+	margin: 40px 0;
+	flex: 1 0 100%;
+}
+
+.archive article {
+	background-color: #fffc;
+	width: 90vw;
+	margin-left: 5vw;
+	border-radius: 4px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: flex-start;
+	padding: 10px;
+}
+.archive article * { margin: 0; }
+
+.archive article .post-thumbnail {
+border-radius: 4px;
+	height: 225px;
+	width: 100%;
+	overflow: hidden;
+}
+.archive article .post-thumbnail img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.archive article .entry-title a {
+	color: var(--text-color);
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
+	font-weight: 600;
+	margin: 10px 5px 0 5px;
+	display: inline-block;
+}
+.archive article .entry-content {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+ }
+
+.archive article .entry-content p {
+	margin: 10px 5px 0 5px;
+}
+@media only screen and (min-width: 768px) {
+	.archive .site-main {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.archive .page-title { padding: 0; }
+	.archive article {
+		width: auto;
+		flex: 0 0 30%;
+		margin: 0 0 40px 0;
 	}
 }
 

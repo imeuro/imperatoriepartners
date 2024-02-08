@@ -17,16 +17,7 @@
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				ip24_posted_on();
-				ip24_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+		 ?>
 	</header><!-- .entry-header -->
 
 	<?php ip24_post_thumbnail(); ?>
