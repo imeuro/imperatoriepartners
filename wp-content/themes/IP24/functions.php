@@ -139,7 +139,7 @@ function gallery_from_attached_media($post) {
     // print_r($fake_block);
 
     // print_r($block_content);
-        echo 'eccomi';
+    // echo 'eccomi';
 
     $post->post_content = $post->post_content.$block_content;
     wp_update_post( $post,true );
