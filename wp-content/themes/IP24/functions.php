@@ -75,3 +75,81 @@ add_shortcode('latest-offers', 'HP_latest_offers');
 // USAGE:
 // echo do_shortcode('[latest-offers]');
 // [latest-offers]
+
+
+
+function update_posts_galleries($content) {
+    if (is_single()) {
+
+        // echo 'giuseppe';
+        $post = get_post(); 
+
+        if ( has_blocks( $post->post_content ) ) {
+            $blocks = parse_blocks( $post->post_content );
+
+            $gallerypresent = false;
+            foreach ($blocks as $block) {
+                //print_r($block['blockName']);
+                if ( $block['blockName'] === 'core/gallery' ) {
+                    //echo 'c\'è gia';
+                    $gallerypresent = true;
+                }
+            }
+
+            if (!$gallerypresent) {
+                //echo '-> la creo..';
+                gallery_from_attached_media($post);
+            }
+            
+        } else {
+            //echo 'non c\'è un gazz';
+            gallery_from_attached_media($post);
+        }
+    }
+    return $content;
+}
+add_filter( 'loop_start', 'update_posts_galleries' );
+
+function gallery_from_attached_media($post) {
+    $media = get_attached_media('image', $post->ID); // Get image attachment(s) to the current Post
+    //print_r($media);
+
+    $fake_block = "<!-- wp:paragraph --><p>fgreg nkerngkesnenrgjkl nelkbrsgvklwbgwan vlka ewnkwenjfklw bfkvqcbq klfgw evbwefb lewq</p><!-- /wp:paragraph -->";
+
+
+    $block_content = '
+        <!-- wp:gallery {"linkTo":"none"} -->
+        <figure class="wp-block-gallery has-nested-images columns-default is-cropped">';
+    
+    foreach ($media as $pic) {
+        //print_r($pic);
+        //echo '<br>'.$pic->ID.'-------- <br>';
+        $img_atts = wp_get_attachment_image_src( $pic->ID, 'large' );
+        $block_content .= '<!-- wp:image {"id":'.$pic->ID.',"sizeSlug":"large","linkDestination":"none"} -->
+            <figure class="wp-block-image size-large"><img src="'.$img_atts[0].'" alt="" class="wp-image-'.$pic->ID.'"/></figure>
+        <!-- /wp:image -->';
+    }
+    
+    $block_content .= '
+        </figure>
+        <!-- /wp:gallery -->';     
+    
+    // echo do_blocks($fake_block);
+    // echo do_blocks($block_content);
+    // print_r($fake_block);
+
+    // print_r($block_content);
+        echo 'eccomi';
+
+    $post->post_content = $post->post_content.$block_content;
+    wp_update_post( $post,true );
+    // if (is_wp_error($post->ID)) {
+    //     $errors = $post->ID->get_error_messages();
+    //     foreach ($errors as $error) {
+    //         echo $error;
+    //     }
+    // } else {
+    //     echo 'T\'appó.';
+    // }
+}
+

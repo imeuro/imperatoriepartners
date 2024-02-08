@@ -100,36 +100,39 @@ strong, b { font-weight: 600; }
 }
 
 #site-navigation .menu-imperatoriepartners-container {
-	opacity: 0;
-	width: 100%;
-	margin-top: 15px;
+	opacity: 1;
+	width: 85vw;
+	height: 100lvh;
+	position: absolute;
+	top: -3lvh;
+	left: 100vw;
 	overflow: hidden;
-	transition: opacity 350ms ease-in-out;
+	transition: all 350ms ease-in-out;
 }
 #site-navigation.toggled .menu-imperatoriepartners-container {
 	opacity: 1;
+	left: 10lvw;
 }
 
 #site-navigation.toggled #primary-menu {
 	background-color: var(--text-color);
 	border-radius: 3px;
-	padding: 10px 30px;
+	padding: 120px 5vw 20px 5vw;
 	display: flex;
 	flex-flow: column;
 	align-items: flex-end;
-	justify-content: space-between;
-}
-#site-navigation.toggled #primary-menu ul {
-	font-size: 14px;
-	line-height: 24px;
+	justify-content: flex-start;
+	height: 100%;
+	font-size: 26px;
+	line-height: 30px;
 	position: initial;
 	width: 100%;
 	margin-bottom: 5px;
 }
 #site-navigation #primary-menu a {
+	padding: 15px 0;
 	color: var(--bg-color);
 	text-transform: uppercase;
-	padding: 5px 0;
 	text-align: right;
 	width: 100%;
 }
@@ -140,6 +143,7 @@ strong, b { font-weight: 600; }
 	background-color: transparent;
 	border: none;
 	position: relative;
+	z-index: 1;
 	text-indent: -9999px;
 	border-top: 2px solid var(--text-color);
 	border-bottom: 2px solid var(--text-color);
@@ -147,6 +151,7 @@ strong, b { font-weight: 600; }
 	padding: 0;
 	width: 30px;
 	height: 20px;
+	transition: all 300ms ease-in-out;
 }
 #site-navigation .menu-toggle:before {
 	content: "";
@@ -157,9 +162,15 @@ strong, b { font-weight: 600; }
 	width: 30px;
 	height: 2px;
 	background-color: var(--text-color);
+	transition: all 300ms ease-in-out
 }
-
-
+#site-navigation.toggled .menu-toggle {
+	border-top: 2px solid var(--bg-color);
+	border-bottom: 2px solid var(--bg-color);
+}
+#site-navigation.toggled .menu-toggle:before {
+	background-color: var(--bg-color);
+}
 
 
 
@@ -192,6 +203,18 @@ strong, b { font-weight: 600; }
 
 
 @media only screen and (min-width: 768px) {
+	.site-header:not(.site-header-big) + #primary {
+		margin-top: 130px;
+	}
+
+	.site-header:not(.site-header-big) #site-navigation {
+		position: fixed;
+		z-index: 3;
+		top: 70px;
+		left: 0;
+		width: 100vw;
+		background: #fffd;
+	}
 	.site-header.site-header-big #site-navigation {
 		position: fixed;
 		z-index: 3;
@@ -202,16 +225,36 @@ strong, b { font-weight: 600; }
 		border-radius: 3px;
 	}
 	#site-navigation .menu-imperatoriepartners-container {
+		position: initial;
+		width: 100%;
+		height: auto;
 		margin-top: 0;
 		opacity: 1;
+	}
+	.site-header:not(.site-header-big) #site-navigation .menu-imperatoriepartners-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0;		
 	}
 	#site-navigation #primary-menu {
 		flex-flow: row nowrap;
 		align-items: center;
 		justify-content: space-around;
 	}
+	.site-header:not(.site-header-big) #site-navigation #primary-menu {
+		justify-content: space-between;
+	}
+	#site-navigation.toggled #primary-menu ul {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	.site-header:not(.site-header-big) #site-navigation #primary-menu a { color: var(--text-color); }
+	.site-header:not(.site-header-big) .site-branding {
+		margin: 0 auto;
+	}
 	.site-header.site-header-big .site-branding {
 		width: 330px;
+		max-width: 330px;
 		margin-left: 50vw;
 		padding-bottom: 10lvh;
 		font-size: 20px;
@@ -235,7 +278,8 @@ section.container-offers {
 section.container-offers .wp-block-heading,
 section#chi-siamo .wp-block-heading,
 section#contatti .wp-block-heading,
-.page-title {
+.page-title,
+.entry-title {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
@@ -294,7 +338,8 @@ figure.offer-card-pic img {
 	section.container-offers .wp-block-heading,
 	section#chi-siamo .wp-block-heading,
 	section#contatti .wp-block-heading,
-	.page-title { 
+	.page-title,
+	.entry-title { 
 		font-size: 48px;
 		letter-spacing: 2px;
 		font-weight: 500;
@@ -406,7 +451,8 @@ figure.offer-card-pic img {
 
 /* ELEMENTI IN PAGINE/ARCHIVI */
 
-.archive .page-header {
+.archive .page-header,
+.single .entry-header {
 	margin: 40px 0;
 	flex: 1 0 100%;
 }
@@ -462,7 +508,8 @@ border-radius: 4px;
 		align-items: flex-start;
 		justify-content: space-between;
 	}
-	.archive .page-title { padding: 0; }
+	.archive .page-title,
+	.single .entry-title { padding: 0; }
 	.archive article {
 		width: auto;
 		flex: 0 0 30%;
@@ -473,7 +520,7 @@ border-radius: 4px;
 
 /* FOOTER */
 .site-footer {
-	z-index: 5;
+	z-index: 15;
 	background-color: var(--text-color);
 	color: var(--bg-color);
 	padding: 10vh 5vw;
