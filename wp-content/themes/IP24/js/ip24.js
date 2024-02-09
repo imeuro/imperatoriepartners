@@ -23,7 +23,7 @@ let item_share = () => {
 		const resultPara = targetDiv;
 		const shareData = {
 			title: document.title,
-			text: document.querySelector('meta[name="description"]').attributes.content,
+			text: '',
 			url: document.location.href,
 		};
 		targetDiv.innerHTML = '<a href="#">condividi</a>';

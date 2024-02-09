@@ -45,7 +45,7 @@ strong, b { font-weight: 600; }
 	background-color: transparent;
 	background-size: cover;
 }
-#introbg > img { height: 100%; }
+#introbg > img { height: 100vh; }
 #page {
 	position: relative;
 	z-index: 1;
