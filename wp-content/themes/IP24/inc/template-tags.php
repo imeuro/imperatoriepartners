@@ -74,7 +74,7 @@ if ( ! function_exists( 'ip24_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function ip24_post_thumbnail() {
+	function ip24_post_thumbnail($size='post-thumbnail') {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -83,7 +83,7 @@ if ( ! function_exists( 'ip24_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail($size); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -116,5 +116,16 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	 */
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
+	}
+endif;
+
+
+if ( ! function_exists( 'ip24_entry_categories' ) ) :
+	function ip24_entry_categories() {
+		$categories_list = get_the_category_list( esc_html__( ', ', 'ip24' ) );
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="cat-links">' . esc_html__( '%1$s', 'ip24' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 	}
 endif;

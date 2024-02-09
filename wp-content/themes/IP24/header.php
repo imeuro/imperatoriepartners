@@ -17,10 +17,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
- -->
+	<title><?php echo wp_get_document_title(); ?></title>
+	<meta name="description" content="<?php if (is_singular()) : echo get_the_excerpt(); else: bloginfo( 'description' ); endif; ?>"/>
+
+
 	<?php wp_head(); ?>
 </head>
 

@@ -21,6 +21,7 @@ function ip24_scripts() {
 	wp_style_add_data( 'base-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'ip24-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'ip24-scripts', get_template_directory_uri() . '/js/ip24.js', array('ip24-navigation'), _S_VERSION, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'ip24_scripts' );
@@ -77,7 +78,26 @@ add_shortcode('latest-offers', 'HP_latest_offers');
 // [latest-offers]
 
 
+add_filter('get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif (is_tax()) { //for custom post types
+        $title = sprintf(__('%1$s'), single_term_title('', false));
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    }
+    return $title;
+});
 
+
+
+
+
+/* converte post attachments in gallery-blocks */
 function update_posts_galleries($content) {
     if (is_single()) {
 
@@ -87,9 +107,11 @@ function update_posts_galleries($content) {
         if ( has_blocks( $post->post_content ) ) {
             $blocks = parse_blocks( $post->post_content );
 
+            //print_r($post);
+
             $gallerypresent = false;
             foreach ($blocks as $block) {
-                //print_r($block['blockName']);
+                // print_r($block['blockName']);
                 if ( $block['blockName'] === 'core/gallery' ) {
                     //echo 'c\'è gia';
                     $gallerypresent = true;
@@ -110,11 +132,14 @@ function update_posts_galleries($content) {
 }
 add_filter( 'loop_start', 'update_posts_galleries' );
 
+
+function convert_to_paragraph_block($post) {
+
+}
+
 function gallery_from_attached_media($post) {
     $media = get_attached_media('image', $post->ID); // Get image attachment(s) to the current Post
     //print_r($media);
-
-    $fake_block = "<!-- wp:paragraph --><p>fgreg nkerngkesnenrgjkl nelkbrsgvklwbgwan vlka ewnkwenjfklw bfkvqcbq klfgw evbwefb lewq</p><!-- /wp:paragraph -->";
 
 
     $block_content = '
@@ -132,17 +157,14 @@ function gallery_from_attached_media($post) {
     
     $block_content .= '
         </figure>
-        <!-- /wp:gallery -->';     
-    
-    // echo do_blocks($fake_block);
-    // echo do_blocks($block_content);
-    // print_r($fake_block);
+        <!-- /wp:gallery -->';
 
     // print_r($block_content);
     // echo 'eccomi';
 
     $post->post_content = $post->post_content.$block_content;
     wp_update_post( $post,true );
+
     // if (is_wp_error($post->ID)) {
     //     $errors = $post->ID->get_error_messages();
     //     foreach ($errors as $error) {
