@@ -30,6 +30,7 @@ add_action( 'wp_enqueue_scripts', 'ip24_scripts' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+// require get_template_directory() . '/inc/custom-fields.php';
 
 
 // DEBLOAT
