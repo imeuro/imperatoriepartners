@@ -20,7 +20,7 @@ let item_share = () => {
 
 	if (targetDiv && typeof(navigator.share) !== "undefined"){
 	//if (targetDiv){
-		const resultPara = targetDiv;
+		//const resultPara = targetDiv;
 		const shareData = {
 			title: document.title,
 			text: '',
@@ -30,9 +30,9 @@ let item_share = () => {
 		targetDiv.addEventListener("click", async () => {
 			try {
 				await navigator.share(shareData);
-				resultPara.textContent = "MDN shared successfully";
+				// resultPara.textContent = "MDN shared successfully";
 			} catch (err) {
-				resultPara.textContent = `Error: ${err}`;
+				// resultPara.textContent = `Error: ${err}`;
 			}
 		});
 	}

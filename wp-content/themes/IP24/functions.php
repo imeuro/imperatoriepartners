@@ -175,3 +175,40 @@ function gallery_from_attached_media($post) {
     // }
 }
 
+
+
+
+
+//Add Open Graph Meta Info from the actual article data, or customize as necessary
+function facebook_open_graph() {
+    global $post;
+    if ( !is_singular()) //if it is not a post or a page
+        return;
+    if(get_the_excerpt()) {
+        $excerpt = strip_tags(get_the_excerpt());
+        $excerpt = str_replace("", "'", $excerpt);
+    } else {
+        $excerpt = get_bloginfo('description');
+    }
+
+    //You'll need to find you Facebook profile Id and add it as the admin
+    echo '<meta property="og:title" content="' . wp_get_document_title() . '"/>';
+    echo '<meta property="og:description" content="' . $excerpt . '"/>';
+    echo '<meta property="og:type" content="article"/>';
+    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+    // Customize the below with the name of your site
+    echo '<meta property="og:site_name" content="'.get_bloginfo( 'title' ).'"/>';
+
+    if(!has_post_thumbnail( $post->ID ) || is_front_page()) { //the post does not have featured image, use a default image
+        //Create a default image on your server or an image in your media library, and insert it's URL here
+        $default_image="https://www.imperatoriepartners.it/wp-content/themes/IP24/images/IMPERATORI&PARTNERS.svg"; 
+        echo '<meta property="og:image" content="' . $default_image . '"/>';
+    } else{
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    }
+
+    echo "
+";
+}
+add_action( 'wp_head', 'facebook_open_graph', 5 );
