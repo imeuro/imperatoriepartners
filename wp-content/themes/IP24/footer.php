@@ -19,6 +19,46 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script type="text/javascript">
+function ip24Loader(objAttr, chainId = null, elementType = "script", target = document.body) {
+	return new Promise(function (resolve, reject) {
+		let element = document.createElement(elementType);
 
+		for (const property in objAttr) {
+			element.setAttribute(property, objAttr[property]);
+		}
+		let path = objAttr.src || objAttr.href;
+		element.onload = () => {
+			resolve(element);
+			console.log(`[ip24Loader] ${path} caricato!`, "chainId_" + chainId + " Time: " + performance.now());
+		};
+		element.onerror = e => {
+			reject(
+				new Error(`[ip24Loader] Errore sul caricamento di ${path}`)
+			);
+			console.log(e);
+		};
+
+	    target.appendChild(element);
+	});
+}
+
+
+
+
+ip24Loader({
+	src: "<?php echo get_template_directory_uri().'/js/ip24.js' ?>",
+	async: true
+},"ip24Chain")
+.then(
+	element => ip24Loader({
+		src: "<?php echo get_template_directory_uri().'/js/ip24Carousel.js' ?>",
+		async: true
+	}, "ip24Chain")
+)
+.then(element => {
+	//initCommonScripts();
+});
+</script>
 </body>
 </html>

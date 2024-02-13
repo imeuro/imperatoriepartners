@@ -32,12 +32,27 @@
 		<div class="entry-toolbar">
 			<a href="#" title="vedi immagini" id="entry-img"></a>
 			<span id="entry-share"></span>
+			
 		</div>
 
 	</header><!-- .entry-header -->
 
 
 	<div class="entry-content">
+		<div class="entry-sunto">
+			<span id="entry-info">
+				<?php
+				if(get_field('locali')) : echo get_field('locali');
+					if(get_field('locali')==1) : echo " locale"; else : echo " locali"; endif;
+					
+				endif;
+				?>
+				<?php if(get_field('locali')&&get_field('metriquadri')) : echo " - ";  endif; ?> 
+				<?php if(get_field('metriquadri')) : echo get_field('metriquadri')." mq"; endif; ?>
+				<?php if(get_field('prezzo')) : ?><br/>&euro; <?php the_field('prezzo'); ?><?php endif; ?>
+			</span>
+		</div>
+
 		<?php
 		the_content(
 			sprintf(
@@ -63,7 +78,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php ip24_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -21,7 +21,8 @@ function ip24_scripts() {
 	wp_style_add_data( 'base-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'ip24-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-    wp_enqueue_script( 'ip24-scripts', get_template_directory_uri() . '/js/ip24.js', array('ip24-navigation'), _S_VERSION, true );
+    //wp_enqueue_script( 'ip24-scripts', get_template_directory_uri() . '/js/ip24.js', array('ip24-navigation'), _S_VERSION, true );
+    //wp_enqueue_script( 'ip24-carousel', get_template_directory_uri() . '/js/ip24Carousel.js', array('ip24-scripts'), _S_VERSION, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'ip24_scripts' );

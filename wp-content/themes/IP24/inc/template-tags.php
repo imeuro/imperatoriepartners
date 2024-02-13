@@ -123,9 +123,15 @@ endif;
 if ( ! function_exists( 'ip24_entry_categories' ) ) :
 	function ip24_entry_categories() {
 		$categories_list = get_the_category_list( esc_html__( ', ', 'ip24' ) );
+		$tags_list = get_the_tag_list( esc_html__( ', ', 'ip24' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( '%1$s', 'ip24' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+			if ( $tags_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="tag-links">' . esc_html__( '%1$s', 'ip24' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			
 	}
 endif;

@@ -32,6 +32,56 @@ body {
 strong, b { font-weight: 600; }
 .wp-block-table td, .wp-block-table th { border: none; }
 
+.ip24Carousel {
+    scroll-snap-type: x mandatory;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100vw;
+    transform: translateZ(0);
+    will-change: transform
+}
+
+.ip24CarouselControl {
+    cursor: pointer
+}
+
+.ip24Carousel::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none
+}
+
+.ip24Carousel>.ip24CarouselItem {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    text-align: center
+}
+
+.ip24Carousel>.ip24CarouselItemActive:before {
+    content: "Sono Attiva";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    margin-left: -25px;
+    padding: 10px;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    text-align: center
+}
+
+.ip24CarouselDisabled {
+    opacity: .15
+}
+
 
 #introbg {
 	position:fixed; 
@@ -465,13 +515,11 @@ figure.offer-card-pic img {
 
 .single .entry-header {
 	position: relative;
-	padding-bottom: 20px;
-	margin-bottom: 60px;
-	border-bottom: 1px solid var(--text-color-trasp);
+	margin-bottom: 20px;
 }
 
 .single .entry-header .post-thumbnail {
-	margin-top: 8px;
+	margin: 8px 30px 0 0;
 	flex: 0 0 75px;
 	height: 75px;
 	border-radius: 2px;
@@ -479,11 +527,12 @@ figure.offer-card-pic img {
 }
 
 .single .entry-header .entry-text {
-	flex: 1 0 calc(100% - 75px);
+	flex: 1 0 calc(100% - 105px);
 	height: auto;
 }
-.single .entry-header .entry-text .cat-links a {
-    padding: 0 30px 20px 30px;
+.single .entry-header .entry-text .cat-links a,
+.single .entry-header .entry-text .tag-links a {
+    padding: 0 0 20px 0;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
@@ -493,7 +542,7 @@ figure.offer-card-pic img {
     text-decoration: none;
 }
 .single .entry-header .entry-text .entry-title {
-	padding: 0 30px 0 30px;
+	padding: 0;
     padding-bottom: 0;
     font-size: 30px;
     line-height: 30px;
@@ -501,9 +550,9 @@ figure.offer-card-pic img {
 
 
 .single .entry-header .entry-toolbar {
-    position: absolute;
-    bottom: -40px;
-    left: 0;
+	border-top: 1px solid var(--text-color-trasp);
+	margin-top: 10px;
+	padding-top: 5px;
     width: 100%;
     height: 30px;
 	font-family: "Open Sans", sans-serif;
@@ -511,30 +560,131 @@ figure.offer-card-pic img {
     font-size: 14px;
     line-height: 30px;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
 }
+
 .single .entry-header .entry-toolbar a {
 	color: var(--text-color);
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.single .entry-header .entry-toolbar #entry-img {
+.single .entry-header .entry-toolbar #entry-img,
+.single .entry-header .entry-toolbar #entry-share,
+.single .entry-header .entry-toolbar #entry-print {
     background: url(./images/ico-images.svg) no-repeat 0px 5px transparent;
     background-size: 20px;
     padding-left: 25px;
     height: 30px;
     display: inline-block;
 }
-.single .entry-header .entry-toolbar #entry-share a {
+.single .entry-header .entry-toolbar #entry-share {
     background: url(./images/ico-share.svg) no-repeat 0px 5px transparent;
     background-size: 20px;
-    padding-left: 25px;
-    height: 30px;
-    display: inline-block;
+}
+.single .entry-header .entry-toolbar #entry-print {
+    background: url(./images/ico-print.svg) no-repeat 0px 5px transparent;
+    background-size: 20px;
 }
 
+.single .entry-content {
+	margin-top: 0px;
+}
+
+span#entry-info {
+    background: url(./images/ico-info.svg) no-repeat 5vw 6px;
+    background-size: 20px;
+    background-color: var(--text-color-trasp);
+    display: flex;
+    width: 100vw;
+    max-width: 1200px;
+    padding: 5px calc(5vw + 25px);
+    margin-left: -5vw;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--bg-color-trasp);
+}
+
+.single .photoset-wrapper {
+    position: relative;
+}
+.single .ip24Carousel {
+	width: 100vw;
+    left: -5vw;
+    position: relative;
+    padding: 40px 0;
+    background: #fff;
+}
+
+.single .ip24Slide {
+	margin: 0 5px 0 0;
+	width: 90vw;
+	border-radius: 2px;
+	overflow: hidden;
+    display: flex;
+}
+
+.single .ip24CarouselPrev,
+.single .ip24CarouselNext {
+	background: url(./images/next-slide.svg) no-repeat center center transparent;
+	background-size: 30px;
+	text-indent: -9999px;
+	display: block;
+	width: 35px;
+	height: 110px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -5vw;
+}
+.single .ip24CarouselPrev {
+	background: url(./images/prev-slide.svg) no-repeat center center transparent;
+	right: initial;
+	left: -5vw;
+}
+
+
+
+.single .photoset-desktop-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+}
+
+
+.single .ip24Thumbs {
+	flex: 0 0 200px;
+	display: flex;
+	flex-flow: row wrap;
+	column-gap: 10px;
+	row-gap: 10px;
+	margin: 0;
+}
+.single .ip24Thumbs > figure {
+	width: 90px;
+	margin: 0;
+	display: flex;
+	border-radius: 2px;
+	overflow: hidden;
+	cursor: pointer;
+	opacity: .7;
+	transition: opacity 300ms ease-in-out;
+}
+.single .ip24Thumbs > figure:hover,
+.single .ip24Thumbs > figure.selected {
+	opacity: 1;
+}
+
+.single #ip24Pic {
+    flex: 1 0 calc(100% - 200px);
+    display: flex;
+    border-radius: 2px;
+    overflow: hidden;
+}
 
 
 .archive article {
@@ -613,7 +763,7 @@ border-radius: 4px;
 		height: 100px;
 	}
 	.single .entry-header .entry-text {
-		flex: 1 0 calc(100% - 100px);
+		flex: 1 0 calc(100% - 130px);
 	}
 
 	.single .entry-header .entry-text .entry-title {
@@ -621,6 +771,26 @@ border-radius: 4px;
 	    line-height: 60px;
 	    margin: 0;
 	}
+
+	span#entry-info {
+		position: relative;
+		top: -50px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+		min-width: 250px;
+		display: inline-block;
+		text-align: center;
+		background-position: 10px 11px;
+		margin-left: -10px;
+		padding: 10px 35px;
+	}
+
+
+
+
+
+
 
 	.archive .site-main {
 		display: flex;
