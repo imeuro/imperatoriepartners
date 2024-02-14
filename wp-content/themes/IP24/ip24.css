@@ -253,7 +253,7 @@ strong, b { font-weight: 600; }
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 37.5em) {
 	.site-header:not(.site-header-big) + #primary {
 		margin-top: 130px;
 	}
@@ -391,7 +391,7 @@ figure.offer-card-pic img {
 	margin: 20px 0 0 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 37.5em) {
 	section.container-offers .wp-block-heading,
 	section#chi-siamo .wp-block-heading,
 	section#contatti .wp-block-heading,
@@ -487,7 +487,7 @@ figure.offer-card-pic img {
 	text-transform: uppercase;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 37.5em) {
 	.chi-siamo-block .wp-block-cover .wp-block-cover__inner-container, 
 	.contatti-block .wp-block-cover .wp-block-cover__inner-container { 
 		max-width: 1200px;
@@ -663,6 +663,7 @@ span#entry-info {
     align-items: flex-start;
     justify-content: flex-start;
     height: auto;
+    margin: 70px 0;
 }
 
 
@@ -699,6 +700,42 @@ span#entry-info {
     border-radius: 2px;
     overflow: hidden;
 }
+
+.single footer.entry-footer {
+	border-top: 1px solid var(--text-color-trasp);
+	margin: 20px 0 80px 0;
+	padding-top: 5px;
+	width: 100%;
+	height: 30px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 30px;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: flex-start;
+}
+.single footer.entry-footer a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: var(--text-color-trasp);
+}
+.single p.edit-link .post-edit-link {
+    position: fixed;
+    z-index: 100;
+    right: 5vw;
+    top: 75px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 3px 10px 3px 40px;
+    background: url(./images/ico-edit.svg) no-repeat 8px 4px var(--bg-color-trasp);
+    background-size: 25px;
+    color: var(--text-color);
+    border-radius: 3px;
+}
+
+.single .nav-links {display: none;}
 
 
 .archive article {
@@ -770,7 +807,17 @@ border-radius: 4px;
 .archive article .entry-content p {
 	margin: 10px 5px 0 5px;
 }
-@media only screen and (min-width: 768px) {
+
+
+
+.yith-infs-loader {
+    display: block;
+    width: 100%;
+}
+
+
+
+@media only screen and (min-width: 37.5em) {
 	.single .entry-header .post-thumbnail {
 		margin-top: 8px;
 		flex: 0 0 100px;
@@ -800,12 +847,6 @@ border-radius: 4px;
 		padding: 10px 35px;
 	}
 
-
-
-
-
-
-
 	.archive .site-main {
 		display: flex;
 		flex-flow: row wrap;
@@ -820,6 +861,10 @@ border-radius: 4px;
 		width: auto;
 		flex: 0 0 30%;
 		margin: 0 0 40px 0;
+	}
+	p.edit-link .post-edit-link {
+		right: 30px;
+		top: 150px;
 	}
 }
 
@@ -850,7 +895,7 @@ border-radius: 4px;
 	font-size: 13px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 37.5em) {
 }
 
 

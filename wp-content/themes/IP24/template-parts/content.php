@@ -69,13 +69,12 @@
 			)
 		);
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ip24' ),
-				'after'  => '</div>',
-			)
-		);
+		
 		?>
 	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<?php ip24_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

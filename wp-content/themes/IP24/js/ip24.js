@@ -6,6 +6,12 @@ let menulinks = () => {
 	for (var i = menuScope.length - 1; i >= 0; i--) {
 		let link = menuScope[i].firstChild.href;
 		console.debug(link);
+		if (link.includes("#") === true) {
+			menuScope[i].firstChild.addEventListener('click',(e) => {
+				e.preventDefault();
+
+			});
+		}
 	}
 }
 
@@ -14,7 +20,7 @@ let galleryBlock = document.querySelectorAll('.single .wp-block-gallery');
 let galleryToCarousel = () => {
 	if (galleryBlock) {
 
-		if (window.innerWidth < 1000 ){ // MOBILE MODE
+		if (window.innerWidth < 768 ){ // MOBILE MODE
 			let i = 0;
 			Array.from(galleryBlock).forEach((el) => {
 				// console.debug('el',el);

@@ -71,6 +71,7 @@ function HP_latest_offers() {
             <?php
         endwhile;
         echo '</section>';
+        wp_reset_postdata();
     endif;
 }
 
