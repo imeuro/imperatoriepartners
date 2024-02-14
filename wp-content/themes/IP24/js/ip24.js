@@ -1,5 +1,14 @@
 // ip24.js
 
+let menulinks = () => {
+	const menuScope = document.getElementById('primary-menu').children;
+
+	for (var i = menuScope.length - 1; i >= 0; i--) {
+		let link = menuScope[i].firstChild.href;
+		console.debug(link);
+	}
+}
+
 let galleryBlock = document.querySelectorAll('.single .wp-block-gallery');
 
 let galleryToCarousel = () => {
@@ -41,19 +50,11 @@ let galleryToCarousel = () => {
 				el.classList = 'ip24Thumbs';
 
 				// add 'ip24CarouselItem' class to single slide items;
-				var children = el.children;
-				//console.debug('el',children);
-				Array.from(children).forEach((item) => {
+
+				var children = el.querySelectorAll('figure');
+
+				children.forEach(item => {
 					k == 0 ? item.classList = 'ip24GalleryItem selected' :  item.classList = 'ip24GalleryItem';
-
-					console.debug('item',item.firstElementChild);
-
-					item.firstElementChild.addEventListener('click', (e) => {
-						console.debug('click',e);
-						item.classList.add('selected');
-						document.getElementById('ip24img').src = thumb.src;
-					});
-
 					k++;
 				});
 
@@ -71,6 +72,22 @@ let galleryToCarousel = () => {
 
 				i++;
 			});
+
+
+
+
+			let thumbs = document.querySelectorAll('.ip24GalleryItem');
+			let bigpic = document.getElementById('ip24img');
+			thumbs.forEach(item => {
+				item.addEventListener('click', () => {
+					document.querySelector('.ip24GalleryItem.selected').classList.remove('selected');
+					item.classList.toggle("selected");
+					bigpic.style.opacity = 0;
+					bigpic.src = item.firstChild.src;
+					bigpic.style.opacity = 1;
+				});
+
+			})
 
 		}
 
@@ -124,7 +141,6 @@ let item_share_print = () => {
 
 }
 
-//document.addEventListener("DOMContentLoaded", (event) => {
-	galleryToCarousel();
-	item_share_print();
-//});
+galleryToCarousel();
+item_share_print();
+

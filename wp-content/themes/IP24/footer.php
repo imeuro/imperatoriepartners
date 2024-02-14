@@ -12,8 +12,9 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info aligncenter">
-			&copy; <?php echo date("Y"); ?> - IMPERATORI&PARTNERS <br/> Tutti i diritti riservati
+		<div class="site-info">
+			<span class="footer-logo">IMPERATORI&PARTNERS</span>
+			<p>&copy; <?php echo date("Y"); ?> - Tutti i diritti riservati</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

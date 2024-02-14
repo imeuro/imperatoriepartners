@@ -173,7 +173,7 @@ strong, b { font-weight: 600; }
 	align-items: flex-end;
 	justify-content: flex-start;
 	height: 100%;
-	font-size: 26px;
+	font-size: 20px;
 	line-height: 30px;
 	position: initial;
 	width: 100%;
@@ -344,6 +344,11 @@ section#contatti .wp-block-heading,
 	line-height: 42px;
 	text-transform: uppercase;
 	margin-bottom: 30px;
+}
+
+section#chi-siamo,
+section#contatti {
+	scroll-margin-top: 50px;
 }
 
 section.container-offers .offer-card {
@@ -625,6 +630,11 @@ span#entry-info {
 	overflow: hidden;
     display: flex;
 }
+.single .ip24Slide img {
+    width: 100%;
+    object-fit: cover;
+    /* object-fit: contain; */
+}
 
 .single .ip24CarouselPrev,
 .single .ip24CarouselNext {
@@ -677,6 +687,10 @@ span#entry-info {
 .single .ip24Thumbs > figure:hover,
 .single .ip24Thumbs > figure.selected {
 	opacity: 1;
+}
+.single .ip24Thumbs > figure img {
+	width: 100%;
+    object-fit: cover;
 }
 
 .single #ip24Pic {
@@ -815,9 +829,25 @@ border-radius: 4px;
 	z-index: 15;
 	background-color: var(--text-color);
 	color: var(--bg-color);
-	padding: 10vh 5vw;
+	padding: 3vh 5vw;
 	width: 100%;
 	text-align: center;
+}
+
+.site-footer .footer-logo {
+	background: url(./images/IMPERATORI&PARTNERS-white.svg) no-repeat 0 0;
+	background-size: contain;
+	width: 112px;
+	height: 50px;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	text-indent: -9999px;
+}
+.site-footer .site-info p {
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
 }
 
 @media only screen and (min-width: 768px) {
