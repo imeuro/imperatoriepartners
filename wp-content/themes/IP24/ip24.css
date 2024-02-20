@@ -905,8 +905,10 @@ border-radius: 4px;
 @media print {
 	body { background:#fff }
 	.site-header.site-header { position:absolute; }
+	.site-header.site-header .site-branding { margin: 0 auto; }
 	.site-header:not(.site-header-big) + #primary { margin-top: 80px }
-	#primary-menu, 
+	#primary-menu,
+	.edit-link,
 	#site-navigation, 
 	#introbg, 
 	.single .ip24Thumbs, 
@@ -921,7 +923,7 @@ border-radius: 4px;
 	}
 	#entry-print a { display:none; }
 	#entry-print:after { content: "Tel. 02 39529233"; }
-	#ip24Pic img { max-height: 400px; }
+	#ip24Pic img { max-height: 350px; }
 	span#entry-info {
 	    background: transparent;
 	    color: var(--text-color);
@@ -929,7 +931,12 @@ border-radius: 4px;
 	    width: auto;
 	    padding: 10px;
 	    margin: 0 auto;
-	    border-bottom: 1px solid var(--text-color);
 	}
 	.entry-footer { margin: 0; height:1px }
+
+	table, img, svg {
+	  break-inside: avoid;
+	}
+
+	
 }
