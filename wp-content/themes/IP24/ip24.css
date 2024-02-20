@@ -905,7 +905,10 @@ border-radius: 4px;
 @media print {
 	body { background:#fff }
 	.site-header.site-header { position:absolute; }
-	.site-header.site-header .site-branding { margin: 0 auto; }
+	.site-header.site-header .site-branding { 
+		margin: 0 auto; 
+		max-width:275px;
+	}
 	.site-header:not(.site-header-big) + #primary { margin-top: 80px }
 	#primary-menu,
 	.edit-link,
@@ -923,20 +926,22 @@ border-radius: 4px;
 	}
 	#entry-print a { display:none; }
 	#entry-print:after { content: "Tel. 02 39529233"; }
-	#ip24Pic img { max-height: 350px; }
+	#ip24Pic img { height: 350px; }
 	span#entry-info {
-	    background: transparent;
-	    color: var(--text-color);
-	    font-weight: 600;
-	    width: auto;
-	    padding: 10px;
-	    margin: 0 auto;
+		background: transparent;
+		color: var(--text-color);
+		font-weight: 600;
+		padding: 10px;
+		margin: 0 auto;
+		position: relative;
+		top: -50px;
+		right: 0;
+		width: 200px;
+		text-align: center;
+		height: 0;
+		display: block;
 	}
 	.entry-footer { margin: 0; height:1px }
 
-	table, img, svg {
-	  break-inside: avoid;
-	}
 
-	
 }
