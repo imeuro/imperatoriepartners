@@ -49,7 +49,11 @@
 				?>
 				<?php if(get_field('locali')&&get_field('metriquadri')) : echo " - ";  endif; ?> 
 				<?php if(get_field('metriquadri')) : echo get_field('metriquadri')." mq"; endif; ?>
-				<?php if(get_field('prezzo')) : ?><br/>&euro; <?php the_field('prezzo'); ?><?php endif; ?>
+				<?php if(get_field('price')) : ?>
+					<br/>&euro; <?php the_field('price'); ?>
+				<?php else: ?>
+					<br/>Venduto
+				<?php endif; ?>
 			</span>
 		</div>
 

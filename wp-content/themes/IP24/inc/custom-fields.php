@@ -62,7 +62,7 @@ add_action( 'acf/include_fields', function() {
 		array(
 			'key' => 'field_65ca1f243d4f7',
 			'label' => 'Prezzo',
-			'name' => 'prezzo',
+			'name' => 'price',
 			'aria-label' => '',
 			'type' => 'text',
 			'instructions' => '',
