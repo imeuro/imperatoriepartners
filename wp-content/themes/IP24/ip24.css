@@ -931,5 +931,5 @@ border-radius: 4px;
 	    margin: 0 auto;
 	    border-bottom: 1px solid var(--text-color);
 	}
-
+	.entry-footer { margin: 0; height:1px }
 }
