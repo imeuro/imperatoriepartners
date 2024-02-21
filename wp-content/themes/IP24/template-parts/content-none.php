@@ -11,7 +11,7 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nessuna offerta disponibile.', 'ip24' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nessuna offerta.', 'ip24' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -41,7 +41,7 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'Spiacenti, al momento non sono presenti offerte nella categoria selezionata', 'ip24' ); ?></p>
+			<p><?php esc_html_e( 'Spiacenti, al momento non sono presenti proposte nella categoria selezionata', 'ip24' ); ?></p>
 			<?php
 			//get_search_form();
 
