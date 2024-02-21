@@ -230,7 +230,7 @@ strong, b { font-weight: 600; }
 }
 .site-header.site-header .site-branding .site-title {
 	padding: 10px 0;
-   margin: 0;
+	margin: 0;
  }
 .site-header.site-header-big .site-branding {
 	display: flex;
@@ -247,6 +247,7 @@ strong, b { font-weight: 600; }
 .site-header:not(.site-header-big) + #primary {
 	width: 100%;
 	max-width: 1200px;
+	min-height: calc(100lvh - 180px);
 	margin: 0 auto;
 	margin-top: 70px;
 	padding: 0 5vw;
@@ -256,6 +257,7 @@ strong, b { font-weight: 600; }
 @media only screen and (min-width: 37.5em) {
 	.site-header:not(.site-header-big) + #primary {
 		margin-top: 130px;
+		min-height: calc(100lvh - 240px);
 	}
 
 	.site-header:not(.site-header-big) #site-navigation {
@@ -877,6 +879,7 @@ border-radius: 4px;
 	padding: 3vh 5vw;
 	width: 100%;
 	text-align: center;
+	height: 110px;
 }
 
 .site-footer .footer-logo {
