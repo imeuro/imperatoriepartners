@@ -511,7 +511,8 @@ figure.offer-card-pic img {
 /* ELEMENTI IN PAGINE/ARCHIVI */
 
 .archive .page-header,
-.single .entry-header {
+.single .entry-header,
+.error404 .entry-header {
 	margin: 40px 0;
 	flex: 1 0 100%;
 	display: flex;
