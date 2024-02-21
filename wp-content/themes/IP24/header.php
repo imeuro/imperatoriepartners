@@ -20,6 +20,9 @@
 	<title><?php echo wp_get_document_title(); ?></title>
 	<meta name="description" content="<?php if (is_singular()) : echo get_the_excerpt(); else: bloginfo( 'description' ); endif; ?>"/>
 
+	<link rel="preload" href="<?php echo get_template_directory_uri() . '/fonts/OpenSans-Variable.ttf' ?>" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="<?php echo get_template_directory_uri() . '/fonts/SourceSerif4-Variable.ttf' ?>" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" as="image" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id(2) ); ?>">
 
 	<?php wp_head(); ?>
 </head>
