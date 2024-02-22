@@ -19,6 +19,7 @@ wp-content/plugins/*
 wp-admin/
 wp-includes/
 
+
 /.htaccess
 /license.txt
 /readme.html

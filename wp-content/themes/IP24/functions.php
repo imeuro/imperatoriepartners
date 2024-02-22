@@ -168,14 +168,7 @@ function gallery_from_attached_media($post) {
     $post->post_content = $post->post_content.$block_content;
     wp_update_post( $post,true );
 
-    // if (is_wp_error($post->ID)) {
-    //     $errors = $post->ID->get_error_messages();
-    //     foreach ($errors as $error) {
-    //         echo $error;
-    //     }
-    // } else {
-    //     echo 'T\'appó.';
-    // }
+
 }
 
 
