@@ -44,7 +44,7 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
 
-// IMPERATORI 
+// IMPERATORI
 function HP_latest_offers() {
     $args = array(
         'posts_per_page' => 3, /* how many post you need to display */
@@ -105,7 +105,7 @@ function update_posts_galleries($content) {
     if (is_single()) {
 
         // echo 'giuseppe';
-        $post = get_post(); 
+        $post = get_post();
 
         if ( has_blocks( $post->post_content ) ) {
             $blocks = parse_blocks( $post->post_content );
@@ -125,7 +125,7 @@ function update_posts_galleries($content) {
                 //echo '-> la creo..';
                 gallery_from_attached_media($post);
             }
-            
+
         } else {
             //echo 'non c\'è un gazz';
             gallery_from_attached_media($post);
@@ -148,7 +148,7 @@ function gallery_from_attached_media($post) {
     $block_content = '
         <!-- wp:gallery {"linkTo":"none"} -->
         <figure class="wp-block-gallery has-nested-images columns-default is-cropped">';
-    
+
     foreach ($media as $pic) {
         //print_r($pic);
         //echo '<br>'.$pic->ID.'-------- <br>';
@@ -157,7 +157,7 @@ function gallery_from_attached_media($post) {
             <figure class="wp-block-image size-large"><img src="'.$img_atts[0].'" alt="" class="wp-image-'.$pic->ID.'"/></figure>
         <!-- /wp:image -->';
     }
-    
+
     $block_content .= '
         </figure>
         <!-- /wp:gallery -->';
@@ -204,7 +204,7 @@ function facebook_open_graph() {
 
     if(!has_post_thumbnail( $post->ID ) || is_front_page()) { //the post does not have featured image, use a default image
         //Create a default image on your server or an image in your media library, and insert it's URL here
-        $default_image="https://www.imperatoriepartners.it/wp-content/themes/IP24/images/IMPERATORI&PARTNERS.svg"; 
+        $default_image="https://www.imperatoriepartners.it/wp-content/themes/IP24/images/android-chrome-512x512.png";
         echo '<meta property="og:image" content="' . $default_image . '"/>';
     } else{
         $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
