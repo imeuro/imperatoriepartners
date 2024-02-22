@@ -206,6 +206,9 @@ function facebook_open_graph() {
         //Create a default image on your server or an image in your media library, and insert it's URL here
         $default_image="https://www.imperatoriepartners.it/wp-content/themes/IP24/images/android-chrome-512x512.png";
         echo '<meta property="og:image" content="' . $default_image . '"/>';
+        echo '<meta property="og:image:width" content="512" />';
+        echo '<meta property="og:image:height" content="512" />';
+        echo '<meta property="og:image:type" content="image/png" />';
     } else{
         $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
         echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
