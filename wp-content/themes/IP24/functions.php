@@ -138,11 +138,6 @@ function update_posts_galleries($content) {
 }
 add_filter( 'loop_start', 'update_posts_galleries' );
 
-
-function convert_to_paragraph_block($post) {
-
-}
-
 function gallery_from_attached_media($post) {
     $media = get_attached_media('image', $post->ID); // Get image attachment(s) to the current Post
     //print_r($media);
