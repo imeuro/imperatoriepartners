@@ -56,7 +56,8 @@ function HP_latest_offers() {
         'order' => 'DESC',
         'post_type' => 'post', /* your post type name */
         'post_status' => 'publish',
-        'ignore_sticky_posts' => true
+        'ignore_sticky_posts' => true,
+        'category__not_in' => array(1) // Esclude i post senza categoria (ID 1 è "Senza categoria")
     );
     $query = new WP_Query($args);
     if ($query->have_posts()) :
